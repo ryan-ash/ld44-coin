@@ -14,7 +14,8 @@ public class BasicInkExample : MonoBehaviour {
 
 	// Creates a new Story object with the compiled story which we can then play!
 	void StartStory () {
-		story = new Story (inkJSONAsset.text);
+		inkService = new InkNarratorService(inkJSONAsset.text);
+		//story = new Story (inkJSONAsset.text);
 		RefreshView();
 	}
 	
@@ -26,23 +27,17 @@ public class BasicInkExample : MonoBehaviour {
 		RemoveChildren ();
 		
 		// Read all the content until we can't continue any more
-		while (story.canContinue) {
-			// Continue gets the next line of the story
-			string text = story.Continue ();
-			// This removes any white space from the text.
-			text = text.Trim();
-			// Display the text on screen!
-			CreateContentView(text);
+		while (inkService.isNextStoryLineAvailable()) {
+			CreateContentView(inkService.getNextStoryLine());
 		}
 
 		// Display all the choices, if there are any!
-		if(story.currentChoices.Count > 0) {
-			for (int i = 0; i < story.currentChoices.Count; i++) {
-				Choice choice = story.currentChoices [i];
-				Button button = CreateChoiceView (choice.text.Trim ());
+		if(inkService.isAnyChoiceAvailable()) {
+			foreach (var choiceInfo in inkService.getChoices()) {
+				Button button = CreateChoiceView (choiceInfo.text);
 				// Tell the button what to do when we press it
 				button.onClick.AddListener (delegate {
-					OnClickChoiceButton (choice);
+					OnClickChoiceButton (choiceInfo.index);
 				});
 			}
 		}
@@ -56,8 +51,8 @@ public class BasicInkExample : MonoBehaviour {
 	}
 
 	// When we click the choice button, tell the story to choose that choice!
-	void OnClickChoiceButton (Choice choice) {
-		story.ChooseChoiceIndex (choice.index);
+	void OnClickChoiceButton (int index) {
+		inkService.chooseChoiceIndex(index);
 		RefreshView();
 	}
 
@@ -105,4 +100,6 @@ public class BasicInkExample : MonoBehaviour {
 	private Text textPrefab;
 	[SerializeField]
 	private Button buttonPrefab;
+
+	private InkNarratorService inkService;
 }
