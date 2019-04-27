@@ -1,9 +1,18 @@
-LONDON, 1872
-Residence of Monsieur Phileas Fogg.
--> london
+SOMWHERE IN A CABINET
+Residence of a well-known psychologist sir Robert Hilltop Montgomery 3rd.
+-> theCabinet
 
-=== london ===
-Monsieur Phileas Fogg returned home early from the Reform Club, and in a new-fangled steam-carriage, besides!  
+=== theCabinet ===
+
+"So, we are here in the cousy cabinet to try and find out what is going on."
+
++ [nod to confirm]-> cabinet01
++ [stare blankly]-> blankstare
+    
+=== cabinet01 ===
+
+"You keep telling that your life is a currency, and we are here to dig deeper in the mind and memories."
+
 "Passepartout," said he. "We are going around the world!"
 
 + "Around the world, Monsieur?"
@@ -11,8 +20,19 @@ Monsieur Phileas Fogg returned home early from the Reform Club, and in a new-fan
     -> astonished
 + [Nod curtly.] -> nod
 
-=== nightmares ===
 
+
+=== blankstare ===
+
+"It seems that you are in no condition to talk today, perheps a short story will help?"
+    
+    
+    ->ending
+
+
+
+
+=== nightmares ===
 
 
 
