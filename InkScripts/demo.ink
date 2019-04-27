@@ -25,6 +25,23 @@ Monsieur Phileas Fogg returned home early from the Reform Club, and in a new-fan
 
     ->ending
     
+=== coinrunner02 ===
+
+
+    ->ending
+    
+
+=== endgameMuseum ===
+
+
+    ->ending
+    
+    
+=== endgameSmelter ===
+
+
+    ->ending
+    
     
     
 
