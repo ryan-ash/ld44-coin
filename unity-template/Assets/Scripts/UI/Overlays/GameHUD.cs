@@ -1,8 +1,8 @@
 ﻿using UnityEngine;
 
-public class GameScreen : ScreenBaseController {
+public class GameHUD : OverlayBaseController {
 
-    private static GameScreen instance;
+    private static GameHUD instance;
 
     void Start()
     {

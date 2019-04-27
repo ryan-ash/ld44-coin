@@ -63,7 +63,7 @@ MonoBehaviour:
     view: {fileID: 0}
     objectsOn: []
     objectsOff: []
-  startState: 0
+  startState: 1
 --- !u!114 &2458586190561882003
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -76,3 +76,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 322290a7f57d44366abdaf9896af55f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  globalTweenConfig: 7
+  introAnimationCycleTime: 1
+  introAnimationMinAlpha: 0.5
