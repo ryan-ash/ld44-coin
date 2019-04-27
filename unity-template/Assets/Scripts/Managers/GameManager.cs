@@ -107,8 +107,8 @@ public class GameManager : MonoBehaviour {
 	private static void SetView(ViewController view, bool active) {
         if (view is MainMenuScreen) {
             SetScreen<MainMenuScreen>(active);
-        } else if (view is GameScreen) {
-            SetScreen<GameScreen>(active);
+        } else if (view is GameHUD) {
+            SetOverlay<GameHUD>(active);
         } else if (view is GameOverScreen) {
             SetScreen<GameOverScreen>(active);
         }
