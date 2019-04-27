@@ -5,9 +5,12 @@ Residence of a well-known psychologist sir Robert Hilltop Montgomery 3rd.
 === theCabinet ===
 
 "So, we are here in the cousy cabinet to try and find out what is going on."
+if {endgameSmelter} I feel like we have already met somewhere...
 
 + [nod to confirm]-> cabinet01
 + [stare blankly]-> blankstare
+if {endgameSmelter}+  I also have such a feeling but I was created recently -> cabinet01
+
     
 === cabinet01 ===
 
