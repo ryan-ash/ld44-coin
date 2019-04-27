@@ -2,7 +2,7 @@ SOMWHERE IN A CABINET
 Residence of a well-known psychologist sir Robert Hilltop Montgomery 3rd.
 -> theCabinet
 
-=== theCabinet ===
+=== theCabinet
 
 "So, we are here in the cousy cabinet to try and find out what is going on."
 if {endgameSmelter} I feel like we have already met somewhere...
@@ -12,7 +12,7 @@ if {endgameSmelter} I feel like we have already met somewhere...
 if {endgameSmelter}+  I also have such a feeling but I was created recently -> cabinet01
 
     
-=== cabinet01 ===
+=== cabinet01
 
 "You keep telling that your life is a currency, and we are here to dig deeper in the mind and memories."
 
@@ -25,9 +25,15 @@ if {endgameSmelter}+  I also have such a feeling but I was created recently -> c
 
 
 
-=== blankstare ===
+=== blankstare
 
 "It seems that you are in no condition to talk today, perheps a short story will help?"
+    
+    + maybe it will -> storie01
+    + no, I doubt it will ->cabinet01
+    
+    
+    == storie01
     
     
     ->ending
@@ -35,7 +41,7 @@ if {endgameSmelter}+  I also have such a feeling but I was created recently -> c
 
 
 
-=== nightmares ===
+=== nightmares
 
 
 
@@ -43,29 +49,29 @@ if {endgameSmelter}+  I also have such a feeling but I was created recently -> c
     -> ending
 
 
-=== coinrunner01 ===
+=== coinrunner01
 
 
     ->ending
     
-=== coinrunner02 ===
+=== coinrunner02
 
 
     ->ending
     
 
-=== endgameMuseum ===
-
-
-    ->ending
-    
-    
-=== endgameSmelter ===
+=== endgameMuseum
 
 
     ->ending
     
     
+=== endgameSmelter
+
+
+    ->ending
+    
+    
     
 
 
@@ -76,7 +82,7 @@ if {endgameSmelter}+  I also have such a feeling but I was created recently -> c
 
 
 
-=== astonished ===
+=== astonished
 "You are in jest!" I told him in dignified affront. "You make mock of me, Monsieur."
 "I am quite serious."
 
@@ -84,7 +90,7 @@ if {endgameSmelter}+  I also have such a feeling but I was created recently -> c
     -> ending
 
 
-=== nod ===
+=== nod
 I nodded curtly, not believing a word of it.
 -> ending
 
