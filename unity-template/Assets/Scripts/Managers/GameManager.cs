@@ -24,8 +24,6 @@ public class GameManager : MonoBehaviour {
 	public GameStateNode[] gameStates;
 	public GameState startState = GameState.MainMenu;
 
-	public GameObject secondPlayer;
-
 	private static Dictionary<GameState, GameStateNode> gameStatesDict;
 
 	public static bool doRestart = false;
