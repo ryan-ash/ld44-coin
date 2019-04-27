@@ -6,7 +6,7 @@ using System.Collections.Generic;
 using System.Text;
 using Ink.Runtime;
 
-public class InkNarratorService {// : MonoBehaviour {
+public class InkNarratorService : MonoBehaviour {
 	
 	public InkNarratorService(string text) {
 		story = new Story (text);
@@ -14,15 +14,14 @@ public class InkNarratorService {// : MonoBehaviour {
 	}
 
 	public string getNextStoryLine() {
-			if (story.canContinue) {
+		if (story.canContinue) {
 			string text = story.Continue ();
 			text = text.Trim();
 
-		foreach (var tag in story.currentTags) {
-			Debug.Log("Tag: ");
-			Debug.Log(tag);
-		}
-
+			foreach (var tag in story.currentTags) {
+				Debug.Log("Tag: ");
+				Debug.Log(tag);
+			}
 			return text;
 		}
 
@@ -52,8 +51,12 @@ public class InkNarratorService {// : MonoBehaviour {
 		story.ChooseChoiceIndex (index);
 	}
 
+	public bool addObservableToTag(string tag, UnityAction observable) {
+		// impl
+	}
+
 	private Story story;
 
-	private Dictionary<Text, UnityAction> actionsDictionary;
+	private Dictionary<string, UnityAction> actionsDictionary;
 
 }
