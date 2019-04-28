@@ -88,8 +88,9 @@ Never conclude for others.
 
 
 === nightmares01
-
-So please tell me what kind of nightmares do you have then? 
+#parallaxshow
+So please tell me what kind of dreams do you have,
+perhaps nightmares then? 
 
 + [I am ready to tell you the one that bothers me]-> coinroll01
 + [There is one that I can not understand]-> coinroll01
