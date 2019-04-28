@@ -23,7 +23,7 @@ public class MainMenuScreen : ScreenBaseController {
 
     private void RunIntroAnimation() {
         if (introAnimationOver) {
-            GameManager.ChangeGameStateTo(GameState.InProgress);
+            DoContinue();
             return;
         }
         LeanTween.value(gameObject, 0f, 1f, SettingsManager.instance.introAnimationCycleTime).setOnUpdate(
@@ -44,6 +44,9 @@ public class MainMenuScreen : ScreenBaseController {
 
     public void OnContinue() {
         introAnimationOver = true;
-        // todo: playsound
+    }
+
+    public void DoContinue() {
+        GameManager.ChangeGameStateTo(GameState.InProgress);
     }
 }
