@@ -4,7 +4,7 @@ public class GameOverScreen : ScreenBaseController {
 
     private static GameOverScreen instance;
 
-    void Start()
+    void Awake()
     {
         instance = this;
     }

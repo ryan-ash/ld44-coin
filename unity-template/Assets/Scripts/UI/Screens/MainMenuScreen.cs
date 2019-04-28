@@ -11,7 +11,7 @@ public class MainMenuScreen : ScreenBaseController {
     private bool introAnimationOver = false;
     private bool animationReversed = false;
 
-    void Start() {
+    void Awake() {
         instance = this;
     }
 
