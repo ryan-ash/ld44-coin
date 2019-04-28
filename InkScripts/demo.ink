@@ -8,6 +8,29 @@ Residence of a well-known psychologist sir Robert Hilltop Montgomery 3rd.
 
 + [nod to confirm] -> cabinet01
 + [stare blankly] -> blankstare
++ [I think there is something wrong with me] -> wrong
+
+
+=== wrong
+
+I would be more than gald to hear out... 
+
+** [I feel as if everybody uses me]
+    Please continue -> dreams
+    
+** [I fell like everybody is just tossing me around]
+    Please continue -> dreams
+    
+** [They toch me everywhere, it feels like my life is currency]
+    Please continue -> dreams
+
+=== dreams
+
+** [I should tell you more about my dreams] -> nightmares01
+
+
+
+
 
 === cabinetAgain
 "So, we are here in the cousy cabinet to try and find out what is going on."
@@ -21,11 +44,11 @@ Residence of a well-known psychologist sir Robert Hilltop Montgomery 3rd.
 "You keep telling that your life is a currency, 
 and we are here to dig deeper in your mind and memories."
 
-+ "Yes, a assume we are"
-    I the coin seemed quite sad.
++ "Yes, I assume we are"
+    (The coin seemed quite sad)
     -> astonished
     
-+ [Nod with assurance.] -> nod
++ [Nod with assurance.] -> coinroll01
 + [blank stare] -> blankstare
 
 
@@ -56,16 +79,20 @@ What you see may not be the reality.
 Never conclude for others. 
     
   + [Wow, I need this to sink in]  ->cabinet01
+  + [Actually I am ready to share a story too, but it is a nightmare] ->nightmares01
 
 
 
 
-=== nightmares
+
+
+
+=== nightmares01
 
 So please tell me what kind of nightmares do you have then? 
 
-+ [I am not ready to tell you right now]-> coinroll01
-+ [This is not that important]-> coinroll01
++ [I am ready to tell you the one that bothers me]-> coinroll01
++ [There is one that I can not understand]-> coinroll01
 
 
 
