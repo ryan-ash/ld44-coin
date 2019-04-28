@@ -41,7 +41,8 @@ public class MainMenuScreen : ScreenBaseController {
                     iconImage.sprite = (animationReversed) ? frontSprite : backSprite;
                 }
                 currentXScale = xScale;
-                var textOpacity = SettingsManager.instance.introAnimationMinAlpha + Mathf.Abs(value - 0.5f);
+                var textOpacityDynamicPart = (!animationReversed) ? 0.5f - value * 0.5f : value * 0.5f;
+                var textOpacity = SettingsManager.instance.introAnimationMinAlpha + textOpacityDynamicPart;
                 icon.localScale = new Vector3(xScale, 1f, 1f);
                 text.alpha = textOpacity;
             }
