@@ -562,6 +562,40 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8010153116017410295, guid: 305a8e8dba2a65b429e3ee85f0df535e,
+        type: 3}
+      propertyPath: texts.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8010153116017410295, guid: 305a8e8dba2a65b429e3ee85f0df535e,
+        type: 3}
+      propertyPath: texts.Array.data[0]
+      value: So, we are here in the cousy cabinet to try and find out what is going
+        on.
+      objectReference: {fileID: 0}
+    - target: {fileID: 8010153116017410295, guid: 305a8e8dba2a65b429e3ee85f0df535e,
+        type: 3}
+      propertyPath: texts.Array.data[1]
+      value: So, we are here in the cousy cabinet to try and find out what is going
+        on.
+      objectReference: {fileID: 0}
+    - target: {fileID: 8010153116017410295, guid: 305a8e8dba2a65b429e3ee85f0df535e,
+        type: 3}
+      propertyPath: texts.Array.data[2]
+      value: You keep telling that your life is a currency, and we are here to dig
+        deeper in your mind and memories.
+      objectReference: {fileID: 0}
+    - target: {fileID: 8010153116017410295, guid: 305a8e8dba2a65b429e3ee85f0df535e,
+        type: 3}
+      propertyPath: storyTextTemplate
+      value: 
+      objectReference: {fileID: 9148202179662227933, guid: 8d434748743628e4eb2bd9b54586f82d,
+        type: 3}
+    - target: {fileID: 8594666231138549011, guid: 305a8e8dba2a65b429e3ee85f0df535e,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 305a8e8dba2a65b429e3ee85f0df535e, type: 3}
 --- !u!1001 &2458586190925751204
@@ -656,6 +690,11 @@ PrefabInstance:
       propertyPath: gameStates.Array.data[3].view
       value: 
       objectReference: {fileID: 8653604762255797562}
+    - target: {fileID: 2458586190561882001, guid: 7a6b7278749b91e47ac85af8854bdeb7,
+        type: 3}
+      propertyPath: startState
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7a6b7278749b91e47ac85af8854bdeb7, type: 3}
 --- !u!114 &3283706961876020130 stripped

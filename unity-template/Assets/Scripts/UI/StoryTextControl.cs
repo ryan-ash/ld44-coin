@@ -9,6 +9,7 @@ public class StoryTextControl : MonoBehaviour
     private GameObject forHide;
 
     public GameObject storyTextTemplate;
+    private GameObject currentNewText;
 
     private void Awake()
     {
@@ -17,13 +18,16 @@ public class StoryTextControl : MonoBehaviour
     
     public void Show(string text)
     {
+        //Debug.Log("Show");
         if (forHide)
         {
             HideCurrent();
         }
+        //else Debug.Log("!forHide");
 
         GameObject newText = Instantiate(storyTextTemplate) as GameObject;
         newText.transform.SetParent(transform, false);
+        newText.GetComponent<Text>().text = text;
 
         if (forHide)
         {
@@ -37,7 +41,9 @@ public class StoryTextControl : MonoBehaviour
             ).setEase(SettingsManager.instance.globalTweenConfig);
         }
 
-        forHide = newText;
+        //Debug.Log("Set For Hide");
+        if(!forHide) forHide = newText;
+        currentNewText = newText;
     }
 
     public void HideCurrent()
@@ -51,7 +57,9 @@ public class StoryTextControl : MonoBehaviour
         ).setOnComplete(
             () =>
             {
+                //Debug.Log("Destroy");
                 Destroy(forHide);
+                forHide = currentNewText;
             }
         ).setEase(SettingsManager.instance.globalTweenConfig);
     }
