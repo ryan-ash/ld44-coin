@@ -96,6 +96,10 @@ public class GameManager : MonoBehaviour {
 
 	private static void MassTurnOnOff(GameObject[] objects, bool sign) {
 		foreach (GameObject obj in objects) {
+			if (!obj) {
+				Debug.LogWarning("Missing mass turn " + (sign ? "on" : "off") + " object");
+				continue;
+			}
 			obj.SetActive(sign);
 		}
 	}

@@ -576,8 +576,7 @@ PrefabInstance:
     - target: {fileID: 8010153116017410295, guid: 305a8e8dba2a65b429e3ee85f0df535e,
         type: 3}
       propertyPath: texts.Array.data[1]
-      value: So, we are here in the cousy cabinet to try and find out what is going
-        on.
+      value: Cabinet to try and find out what is going on.
       objectReference: {fileID: 0}
     - target: {fileID: 8010153116017410295, guid: 305a8e8dba2a65b429e3ee85f0df535e,
         type: 3}

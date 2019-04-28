@@ -8,11 +8,17 @@ public class MainMenuScreen : ScreenBaseController {
     public RectTransform icon;
     public CanvasGroup text;
 
+    public Sprite frontSprite, backSprite;
+
+    private Image iconImage;
+    private float currentXScale;
+
     private bool introAnimationOver = false;
     private bool animationReversed = false;
 
     void Awake() {
         instance = this;
+        iconImage = icon.GetComponent<Image>();
     }
 
     public void OnEnable() {
@@ -23,14 +29,20 @@ public class MainMenuScreen : ScreenBaseController {
 
     private void RunIntroAnimation() {
         if (introAnimationOver) {
-            GameManager.ChangeGameStateTo(GameState.InProgress);
+            DoContinue();
             return;
         }
         LeanTween.value(gameObject, 0f, 1f, SettingsManager.instance.introAnimationCycleTime).setOnUpdate(
             (float value) => {
                 var xScaleAlpha = (animationReversed) ? 1f - value : value;
                 var xScale = Mathf.Lerp(1f, -1f, xScaleAlpha);
-                var textOpacity = SettingsManager.instance.introAnimationMinAlpha + Mathf.Abs(value - 0.5f);
+                bool flipCondition = (xScale < 0 && currentXScale >= 0 && !animationReversed) || (xScale > 0 && currentXScale <= 0 && animationReversed);
+                if (flipCondition) {
+                    iconImage.sprite = (animationReversed) ? frontSprite : backSprite;
+                }
+                currentXScale = xScale;
+                var textOpacityDynamicPart = (!animationReversed) ? 0.5f - value * 0.5f : value * 0.5f;
+                var textOpacity = SettingsManager.instance.introAnimationMinAlpha + textOpacityDynamicPart;
                 icon.localScale = new Vector3(xScale, 1f, 1f);
                 text.alpha = textOpacity;
             }
@@ -44,6 +56,9 @@ public class MainMenuScreen : ScreenBaseController {
 
     public void OnContinue() {
         introAnimationOver = true;
-        // todo: playsound
+    }
+
+    public void DoContinue() {
+        GameManager.ChangeGameStateTo(GameState.InProgress);
     }
 }
