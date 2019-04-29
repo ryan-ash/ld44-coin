@@ -79,3 +79,4 @@ MonoBehaviour:
   globalTweenConfig: 7
   introAnimationCycleTime: 1
   introAnimationMinAlpha: 0.5
+  dialogAnimationTime: 0.25

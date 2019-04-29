@@ -8,16 +8,13 @@ public class ParallaxController : MonoBehaviour
     [SerializeField] private List<Sprite> parallaxLayers = new List<Sprite>();
     [SerializeField] private GameObject camera;
 
-    [SerializeField] private Vector3 bgCameraOffset = new Vector3(0, 0, 0.25f);
+    [SerializeField] private Vector3 bgCameraOffset = new Vector3(0, 0, -8f);
     [SerializeField] private float layerCameraOffset = 10f;
 
     void Awake()
     {
-        camera = GameObject.FindGameObjectWithTag("MainCamera");
-
-        // creating background go
         GameObject background = new GameObject("Background");
-        background.transform.SetParent(camera.transform);
+        background.transform.SetParent(camera.transform, false);
         background.transform.localPosition = bgCameraOffset;
 
         // creating parallax layers

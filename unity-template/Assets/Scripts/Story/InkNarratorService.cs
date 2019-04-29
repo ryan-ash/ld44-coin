@@ -7,10 +7,12 @@ using System.Text;
 using Ink.Runtime;
 
 public class InkNarratorService : MonoBehaviour {
+	private Story story;
+	private Dictionary<string, UnityAction> actionsDictionary;
 	
 	public InkNarratorService(string text) {
 		story = new Story (text);
-		actionsDictionary = new Dictionary<Text, UnityAction> ();
+		actionsDictionary = new Dictionary<string, UnityAction> ();
 	}
 
 	public string getNextStoryLine() {
@@ -47,16 +49,12 @@ public class InkNarratorService : MonoBehaviour {
 		return choices;
 	}
 
-	 public void chooseChoiceIndex(int index) {
+	public void chooseChoiceIndex(int index) {
 		story.ChooseChoiceIndex (index);
 	}
 
 	public bool addObservableToTag(string tag, UnityAction observable) {
+		return true;
 		// impl
 	}
-
-	private Story story;
-
-	private Dictionary<string, UnityAction> actionsDictionary;
-
 }

@@ -4,87 +4,87 @@ using System.Collections.Generic;
 
 public class StoryTextControl : MonoBehaviour
 {
-    public string[] texts;
+    public List<string> storyboard;
     private int currentTextIndex = 0;
     private GameObject forHide;
 
     public GameObject storyTextTemplate;
     private GameObject currentNewText;
 
-    private void Awake()
-    {
+    [HideInInspector]
+    public bool ready = false;
 
-    }
+    public StoryManager storyManager;
     
-    public void Show(string text)
-    {
-        //Debug.Log("Show");
-        if (forHide)
-        {
+    public void ClearStoryBoard() {
+        currentTextIndex = 0;
+        storyboard.Clear();
+    }
+
+    public void AddText(string text) {
+        storyboard.Add(text);
+    }
+
+    public void Show(string text) {
+        if (forHide) {
             HideCurrent();
         }
-        //else Debug.Log("!forHide");
 
         GameObject newText = Instantiate(storyTextTemplate) as GameObject;
         newText.transform.SetParent(transform, false);
         newText.GetComponent<Text>().text = text;
 
-        if (forHide)
-        {
+        if (forHide) {
             float initialY = -1 * forHide.GetComponent<RectTransform>().sizeDelta.y;
             UpdateTextY(newText, initialY);
             LeanTween.value(gameObject, 0f, 1f, SettingsManager.instance.dialogAnimationTime).setOnUpdate(
-                (float value) =>
-                {
+                (float value) => {
                     UpdateTextY(newText, Mathf.Lerp(initialY, 0, value));
                 }
             ).setEase(SettingsManager.instance.globalTweenConfig);
+        } else {
+            forHide = newText;            
         }
 
-        //Debug.Log("Set For Hide");
-        if(!forHide) forHide = newText;
         currentNewText = newText;
     }
 
-    public void HideCurrent()
-    {
+    public void HideCurrent() {
         float finalY = forHide.GetComponent<RectTransform>().sizeDelta.y;
         LeanTween.value(gameObject, 0f, 1f, SettingsManager.instance.dialogAnimationTime).setOnUpdate(
-            (float value) =>
-            {
+            (float value) => {
                 UpdateTextY(forHide, Mathf.Lerp(0, finalY, value));
             }
         ).setOnComplete(
-            () =>
-            {
-                //Debug.Log("Destroy");
+            () => {
                 Destroy(forHide);
                 forHide = currentNewText;
             }
         ).setEase(SettingsManager.instance.globalTweenConfig);
     }
 
-    private void UpdateTextY(GameObject targetText, float y)
-    {
+    private void UpdateTextY(GameObject targetText, float y) {
         Vector3 newTextPosition = targetText.transform.localPosition;
         newTextPosition.y = y;
         targetText.transform.localPosition = newTextPosition;
     }
 
-    void Update()
-    {
-        if (Input.anyKeyDown)
-        {
+    void Update() {
+        if (ready && Input.anyKeyDown) {
             NextText();
         }
     }
 
-    private void NextText()
-    {
-        if (currentTextIndex >= texts.Length)
-            currentTextIndex = 0;
+    public void NextText() {
+        if (currentTextIndex >= storyboard.Count) {
+            return;
+        }
 
-        Show(texts[currentTextIndex]);
+        Show(storyboard[currentTextIndex]);
         currentTextIndex += 1;
+
+        if (currentTextIndex >= storyboard.Count) {
+            storyManager.DisplayButtons();
+        }
     }
 }

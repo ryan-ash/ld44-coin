@@ -115,7 +115,9 @@ public class GameManager : MonoBehaviour {
             SetOverlay<GameHUD>(active);
         } else if (view is GameOverScreen) {
             SetScreen<GameOverScreen>(active);
-        }
+        } else if (view is GameScreen) {
+            SetScreen<GameScreen>(active);
+		}
     }
 
     private static void SetScreen<T>(bool active) {

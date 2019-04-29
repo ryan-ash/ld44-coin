@@ -1,4 +1,4 @@
-SOMWHERE IN A CABINET
+SOMEWHERE IN A CABINET
 Residence of a well-known psychologist sir Robert Hilltop Montgomery 3rd.
 -> theCabinet
 
